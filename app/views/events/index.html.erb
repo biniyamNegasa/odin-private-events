@@ -1,0 +1,19 @@
+<h1>All available events!</h1>
+<% if user_signed_in? %>
+    <p><%= link_to "logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %></p>
+    <p>Events you created. <%= link_to "here.", users_show_path %> </p>
+<% else %>
+    <p><%= link_to "signin", new_user_session_path %> </p>
+<% end %>
+
+<% @events.each do |event| %>
+    <div>
+        <%= render "single_event", event: event %>
+        <div><%= link_to "this event", event %></div>
+        <br>
+    </div>
+<% end %>
+<% if user_signed_in? %>
+    <br>
+    <%= link_to "New Event", new_event_path %>
+<% end %>
