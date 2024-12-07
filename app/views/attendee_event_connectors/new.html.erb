@@ -1,0 +1,8 @@
+<%= form_with do |form| %>
+    <%= form.hidden_field :event_id, value: params[:event_id] %>
+    <%= form.label :attend_event, 'Attend Event' %>
+    <%= form.check_box :attend_event %>
+    <%= form.submit "Submit" %>
+<% end %>
+
+<p><%= link_to "<- Back to All events", events_path %></p>

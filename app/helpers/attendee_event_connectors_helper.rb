@@ -1,0 +1,2 @@
+module AttendeeEventConnectorsHelper
+end

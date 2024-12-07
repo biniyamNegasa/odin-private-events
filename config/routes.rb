@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "attendee_event_connectors/new"
+  post "attendee_event_connectors/new", to: "attendee_event_connectors#create"
   get "users/show"
   devise_for :users
   root to: "events#index"

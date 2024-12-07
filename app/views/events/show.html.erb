@@ -1,5 +1,13 @@
 <h3>This Event</h3>
 
 <%= render "single_event", event: @event %>
+<p><%= link_to "Attend this Event", attendee_event_connectors_new_path(params: {event_id: @event }) %></p>
+
+<h4>Attendees</h4>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.email %></li>
+  <% end %>
+</ul>
 
 <p><%= link_to "<- Back to All events", events_path %></p>
