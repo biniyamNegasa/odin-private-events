@@ -1,9 +1,24 @@
-<h2>Here the events you have created!</h2>
-<% @user.created_events.each do |event| %>
-    <div>Date: <%= event.date %></div>
-    <div>Location: <%= event.location %></div>
+<h2>Events</h2>
+
+<h4>Here the events you have created!</h4>
+<ul>
+    <% @user.created_events.each do |event| %>
+        <li>
+        <div>Date: <%= event.date %></div>
+        <div>Location: <%= event.location %></div>    
+        </li>
+        <br>
+    <% end %>
+</ul>
+
+
+<h4>Attended Events</h4>
+<ul>
+  <% @user.attended_events.each do |event| %>
+    <li><%= render "events/single_event", event: event %></li>
     <br>
-<% end %>
+  <% end %>
+</ul>
 
 
 <p><%= link_to "<- Back to All events", events_path %></p>

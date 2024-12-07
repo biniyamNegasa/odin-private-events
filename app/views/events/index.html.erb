@@ -1,7 +1,7 @@
 <h1>All available events!</h1>
 <% if user_signed_in? %>
     <p><%= link_to "logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %></p>
-    <p>Events you created. <%= link_to "here.", users_show_path %> </p>
+    <p>Events you associated with. <%= link_to "here.", users_show_path %> </p>
 <% else %>
     <p><%= link_to "signin", new_user_session_path %> </p>
 <% end %>
