@@ -6,13 +6,26 @@
     <p><%= link_to "signin", new_user_session_path %> </p>
 <% end %>
 
-<% @events.each do |event| %>
+<h3>Upcoming Events</h3>
+
+<% @events.past.each do |event| %>
     <div>
         <%= render "single_event", event: event %>
         <div><%= link_to "this event", event %></div>
         <br>
     </div>
 <% end %>
+
+<h3>Past Events</h3>
+
+<% @events.upcoming.each do |event| %>
+    <div>
+        <%= render "single_event", event: event %>
+        <div><%= link_to "this event", event %></div>
+        <br>
+    </div>
+<% end %>
+
 <% if user_signed_in? %>
     <br>
     <%= link_to "New Event", new_event_path %>
